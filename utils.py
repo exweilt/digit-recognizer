@@ -1,4 +1,5 @@
 import pygame
+from typing import *
 
 import neunet
 from main import IMAGES_FILE, PIXEL_SIZE
@@ -30,6 +31,12 @@ def set_virtual_pixel(wnd: pygame.Surface, x, y, value):
     # img.put(f"#{grayscale:02x}{grayscale:02x}{grayscale:02x}", (col_idx, row_idx))
     # canvas.create_rectangle(x*PIXEL_SIZE, y*PIXEL_SIZE, x*PIXEL_SIZE + PIXEL_SIZE, y*PIXEL_SIZE + PIXEL_SIZE, fill=f"#{grayscale:02x}{grayscale:02x}{grayscale:02x}", width=0)
 
+def draw_image(img: list[list[int]], window):
+    for row_idx, row in enumerate(img):
+        for col_idx, grayscale in enumerate(row):
+            # window.set_at((col_idx, row_idx), (grayscale, grayscale, grayscale))
+            set_virtual_pixel(window, col_idx, row_idx, grayscale)
+            # img.put(f"#{grayscale:02x}{grayscale:02x}{grayscale:02x}", (col_idx, row_idx))
 
 def draw_neural_network(network: neunet.NeuralNetwork):
     pass

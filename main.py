@@ -3,6 +3,7 @@ import sys
 import neunet
 
 import utils
+import numpy as np
 
 # Constants
 IMAGES_FILE = "train-images.idx3-ubyte"
@@ -42,6 +43,17 @@ if __name__ == "__main__":
 
     # utils.draw_neural_network(nn)
 
+    # nn2 = neunet.NeuralNetwork([
+    #     neunet.DenseLayer(1, 1),
+    #     neunet.DenseLayer(1, 1),
+    # ])
+    # nn2.predict(np.array([2]))
+
+    nn = neunet.NeuralNetwork([
+        neunet.DenseLayer(20, 28*28),
+        neunet.DenseLayer(10, 20)
+    ])
+
     pygame.display.update()
 
     drawn_image = [[0 for j in range(28)] for i in range(28)]
@@ -54,6 +66,10 @@ if __name__ == "__main__":
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
                     drawn_image = [[0 for j in range(28)] for i in range(28)]
+                if event.key == pygame.K_p:
+                    print("Making prediction...")
+                    y_hat = nn.predict(utils.image_to_input_array(drawn_image))
+                    print(f"Predicted: {y_hat}")
             if event.type == pygame.QUIT:
                 running = False
             

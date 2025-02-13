@@ -1,5 +1,6 @@
 import pygame
 from typing import *
+import numpy as np
 
 import neunet
 from main import IMAGES_FILE, PIXEL_SIZE
@@ -40,3 +41,6 @@ def draw_image(img: list[list[int]], window):
 
 def draw_neural_network(network: neunet.NeuralNetwork):
     pass
+
+def image_to_input_array(img: list[list[int]]) -> np.ndarray:
+    return np.array( [num for row in img for num in row] )

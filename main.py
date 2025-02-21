@@ -5,12 +5,7 @@ import neunet
 import utils
 import numpy as np
 
-# Constants
-IMAGES_FILE = "train-images.idx3-ubyte"
-PIXEL_SIZE = 10
-NUM_OF_IMAGES=60000
-WIDTH=28*PIXEL_SIZE
-HEIGHT=28*PIXEL_SIZE
+from constants import *
 
 if __name__ == "__main__":
     pygame.init()

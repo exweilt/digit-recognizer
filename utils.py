@@ -3,7 +3,7 @@ from typing import *
 import numpy as np
 
 import neunet
-from main import IMAGES_FILE, PIXEL_SIZE
+from constants import *
 
 # Returns list of all images. Each image is stored as a 2 dimensional list:
 # 1st dim -> Pixel row position
